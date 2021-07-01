@@ -1,10 +1,11 @@
 import './App.css';
 import Home from './pages/Home';
+import BusinessDetailsForm from './pages/BusinessDetails';
 
 const App = () => {
   return (
     <div>
-      <Home />
+      <BusinessDetailsForm />
     </div>
   );
 }
