@@ -1,9 +1,10 @@
 import React from 'react';
+import FormHeader from '../components/FormHeader';
 
 const BusinessDetailsForm = () => {
   return (
     <div>
-      This is the business details page
+      <FormHeader title="Business Details (1/5)" />
     </div>
   )
 }
