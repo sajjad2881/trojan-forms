@@ -1,9 +1,10 @@
 import './App.css';
+import Home from './pages/Home';
 
 const App = () => {
   return (
     <div>
-      This is the main screen
+      <Home />
     </div>
   );
 }
