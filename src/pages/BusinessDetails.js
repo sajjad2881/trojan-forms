@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import FormHeader from '../components/FormHeader';
-import { Pane, Strong, TextInputField, TextInput, SelectField } from 'evergreen-ui';
 import { useHistory } from "react-router-dom";
+import { Pane,
+         Strong,
+         TextInputField,
+         SelectField,
+         SavedIcon,
+         CaretRightIcon,
+         Button
+       } from 'evergreen-ui';
 
 const BusinessDetailsForm = () => {
   const history = useHistory();
@@ -127,6 +134,28 @@ const BusinessDetailsForm = () => {
             Motion Picture Theatre
           </option>
         </SelectField>
+        <Pane display="flex" justifyContent="space-between">
+          <Button
+            height="45px"
+            width="48%"
+            iconBefore={SavedIcon}
+            backgroundColor="#ffa700"
+            color="white"
+            fontSize={24}
+          >
+            Save
+          </Button>
+          <Button
+            height="45px"
+            width="48%"
+            iconBefore={CaretRightIcon}
+            backgroundColor="#193A8C"
+            color="white"
+            fontSize={24}
+          >
+            Next
+          </Button>
+        </Pane>
       </Pane>
     </div>
   )
