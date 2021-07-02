@@ -152,6 +152,7 @@ const BusinessDetailsForm = () => {
             backgroundColor="#193A8C"
             color="white"
             fontSize={24}
+            onClick={() => history.push('/payment')}
           >
             Next
           </Button>
