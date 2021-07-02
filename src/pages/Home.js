@@ -1,6 +1,9 @@
 import React from "react";
 import { Text, Pane, Strong, ChevronRightIcon, Heading } from 'evergreen-ui';
+import { useHistory } from "react-router-dom";
+
 const Home = () => {
+  const history = useHistory();
   return (
     <div style={{padding: "2rem 1.5rem", display: "flex", flexDirection: "column"}}>
       <Heading style={{marginBottom: "20px"}} size={700}>Get started by</Heading>
@@ -14,6 +17,7 @@ const Home = () => {
         paddingLeft="2rem"
         paddingRight="1rem"
         marginBottom={8}
+        onClick={() => history.push("/details")}
       >
         <Pane display="flex" flexDirection="column">
           <Strong size={500} marginBottom=".5rem">Create a new account</Strong>

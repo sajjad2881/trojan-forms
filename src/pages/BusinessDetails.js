@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import FormHeader from '../components/FormHeader';
 import { Pane, Strong, TextInputField, TextInput, SelectField } from 'evergreen-ui';
+import { useHistory } from "react-router-dom";
 
 const BusinessDetailsForm = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -19,9 +21,13 @@ const BusinessDetailsForm = () => {
     });
   }
 
+  const onClickBack = () => {
+    history.push("/");
+  }
+
   return (
     <div>
-      <FormHeader title="Business Details (1/5)" />
+      <FormHeader title="Business Details (1/5)" onClickBack={onClickBack} />
       <Pane padding="1rem">
         <Strong size={300}>Tell us about your business</Strong>
         <TextInputField

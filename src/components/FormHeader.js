@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pane, ChevronLeftIcon, Heading } from 'evergreen-ui';
 
-const FormHeader = ({ title }) => {
+const FormHeader = ({ title, onClickBack }) => {
   return (
     <Pane
       display="flex"
@@ -14,6 +14,7 @@ const FormHeader = ({ title }) => {
         size={25}
         position="absolute"
         left="1.5rem"
+        onClick={onClickBack}
       />
       <Heading size={700}>{title}</Heading>
     </Pane>
