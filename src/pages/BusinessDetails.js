@@ -1,21 +1,30 @@
 import React from 'react';
 import FormHeader from '../components/FormHeader';
 import { useHistory } from "react-router-dom";
-import { Pane,
-         Strong,
-         TextInputField,
-         SelectField,
-         SavedIcon,
-         CaretRightIcon,
-         Button,
-         Text
-       } from 'evergreen-ui';
+import {
+  Pane,
+  Strong,
+  TextInputField,
+  SelectField,
+  SavedIcon,
+  CaretRightIcon,
+  Button,
+  Text
+} from 'evergreen-ui';
 import { useForm } from "react-hook-form";
-import { industries, staffSizes } from "../utils/data";
+import {
+  industries,
+  staffSizes,
+  businessTypes,
+  registrationTypes
+} from "../utils/data";
+
+const REGISTERED = "registered business";
 
 const BusinessDetailsForm = () => {
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
+  const formBusinessType = watch("businessType")
 
   const onClickBack = () => {
     history.push("/");
@@ -25,6 +34,10 @@ const BusinessDetailsForm = () => {
     console.log("DATA", data)
   };
 
+  const registeredBusinessSelected = () => {
+    return formBusinessType === REGISTERED;
+  }
+
   return (
     <div>
       <FormHeader title="Business Details (1/5)" onClickBack={onClickBack} />
@@ -32,12 +45,11 @@ const BusinessDetailsForm = () => {
         <Strong>Tell us about your business</Strong>
         <TextInputField
           placeholder="Commercial Name"
-          style={{height: "5rem"}}
           description="Name"
           {...register("name")}
         />
         <SelectField
-          style={{height: "5rem"}}
+          name="industry"
           marginBottom="2rem"
           description="Industry"
           {...register("industry")}
@@ -51,7 +63,6 @@ const BusinessDetailsForm = () => {
           })}
         </SelectField>
         <SelectField
-          style={{height: "5rem"}}
           marginBottom="2rem"
           description="Staff Size"
           {...register("staffSize")}
@@ -79,6 +90,41 @@ const BusinessDetailsForm = () => {
             <Text marginLeft="1rem">Bill Payments</Text>
           </Pane>
         </Pane>
+        <SelectField
+          marginBottom="2rem"
+          description="Business Type"
+          {...register("businessType")}
+        >
+          {businessTypes.map((type, idx) => {
+            return (
+              <option value={`${type.toLowerCase()}`} selected={idx === 0}>
+                {type}
+              </option>
+            )
+          })}
+        </SelectField>
+        {
+          registeredBusinessSelected() &&
+            <Pane>
+              <TextInputField
+                description="Legal Business Name"
+                {...register("legalBusinessName")}
+              />
+              <SelectField
+                marginBottom="2rem"
+                description="Registration Type"
+                {...register("registrationType")}
+              >
+                {registrationTypes.map((type, idx) => {
+                  return (
+                    <option value={`${type.toLowerCase()}`} selected={idx === 0}>
+                      {type}
+                    </option>
+                  )
+                })}
+              </SelectField>
+            </Pane>
+        }
         <Pane display="flex" justifyContent="space-between">
           <Button
             height="45px"

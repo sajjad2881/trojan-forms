@@ -56,4 +56,20 @@ export const staffSizes = [
   "1 - 5 people",
   "5 - 50 people",
   "50+ people"
-]
+];
+
+export const businessTypes = [
+  "Starter Business",
+  "Registered Business"
+];
+
+export const registrationTypes = [
+  "Sole Proprietorship",
+  "Private Limited Company",
+  "Freelancer or other Professional",
+  "Partnership.... Limited Liability Partnerships",
+  "Branch Office of Foreign Company",
+  "Trust, Clubs, Societies, Associations",
+  "Non-government organization, non-profit organization, charities",
+  "Other"
+];
