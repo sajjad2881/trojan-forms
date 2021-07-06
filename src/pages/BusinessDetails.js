@@ -33,13 +33,13 @@ const BusinessDetailsForm = () => {
         <TextInputField
           placeholder="Commercial Name"
           style={{height: "5rem"}}
-          hint="Name"
+          description="Name"
           {...register("name")}
         />
         <SelectField
           style={{height: "5rem"}}
           marginBottom="2rem"
-          hint="Industry"
+          description="Industry"
           {...register("industry")}
         >
           {industries.map((industry, idx) => {
@@ -53,7 +53,7 @@ const BusinessDetailsForm = () => {
         <SelectField
           style={{height: "5rem"}}
           marginBottom="2rem"
-          hint="Staff Size"
+          description="Staff Size"
           {...register("staffSize")}
         >
           {staffSizes.map((size, idx) => {
