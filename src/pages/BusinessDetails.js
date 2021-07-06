@@ -20,6 +20,7 @@ import {
 } from "../utils/data";
 
 const REGISTERED = "registered business";
+const UNREGISTERED = "starter business";
 
 const BusinessDetailsForm = () => {
   const history = useHistory();
@@ -36,6 +37,10 @@ const BusinessDetailsForm = () => {
 
   const registeredBusinessSelected = () => {
     return formBusinessType === REGISTERED;
+  }
+
+  const onClickNext = () => {
+    if(formBusinessType === UNREGISTERED) history.push("/unregistered")
   }
 
   return (
@@ -144,7 +149,7 @@ const BusinessDetailsForm = () => {
             backgroundColor="#193A8C"
             color="white"
             fontSize={24}
-            onClick={() => history.push('/payment')}
+            onClick={onClickNext}
           >
             Next
           </Button>
